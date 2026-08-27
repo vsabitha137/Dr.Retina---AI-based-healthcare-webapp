@@ -100,7 +100,6 @@ export default function Navigation({ currentScreen, setCurrentScreen, userRole, 
             <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
               <a href="#how-it-works" className="hover:text-teal-600 transition-colors">How It Works</a>
               <a href="#benefits" className="hover:text-teal-600 transition-colors">Camp Benefits</a>
-              <a href="#clinical-safety" className="hover:text-teal-600 transition-colors">Clinical Safety</a>
               <a href="#disclaimer" className="hover:text-teal-600 transition-colors">Medical Disclaimer</a>
             </nav>
           ) : (
