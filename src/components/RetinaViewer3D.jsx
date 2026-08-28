@@ -150,12 +150,6 @@ export default function RetinaViewer3D() {
         </div>
       </div>
 
-      {/* Floating Status Badges around the eye (as seen in Dribbble reference) */}
-      <div className="absolute -top-3 -right-2 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-teal-200 shadow-lg text-xs font-semibold text-teal-900 flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>AI Precision: 99.4% AUC</span>
-      </div>
-
       <div className="absolute -bottom-2 -left-2 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg text-xs font-medium text-slate-800 flex items-center gap-2">
         <Scan className="w-3.5 h-3.5 text-teal-600" />
         <span>Dual-Eye Fundus Analysis</span>
