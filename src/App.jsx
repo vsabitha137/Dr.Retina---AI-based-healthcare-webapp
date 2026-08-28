@@ -18,9 +18,6 @@ export default function App() {
   });
   const [userRole, setUserRole] = useState('doctor'); // 'admin' | 'doctor' | 'lab_tech'
   const [userEmail, setUserEmail] = useState('');
-  // isDemoPopulated controls whether to show empty state (default false, zero fake data) or live API preview
-  const [isDemoPopulated, setIsDemoPopulated] = useState(false);
-
   // Workflow Handlers
   const handleLandingLoginClick = () => {
     setCurrentScreen('org_select');
@@ -48,16 +45,12 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-teal-500 selection:text-white">
-      {/* Global Header & Screen Switcher Bar */}
+      {/* Global Header */}
       <Navigation
         currentScreen={currentScreen}
         setCurrentScreen={setCurrentScreen}
         userRole={userRole}
-        setUserRole={setUserRole}
         selectedOrg={selectedOrg}
-        setSelectedOrg={setSelectedOrg}
-        isDemoPopulated={isDemoPopulated}
-        setIsDemoPopulated={setIsDemoPopulated}
       />
 
       {/* Screen Render Switch */}
@@ -84,21 +77,18 @@ export default function App() {
         {currentScreen === 'admin_dashboard' && (
           <AdminDashboard
             selectedOrg={selectedOrg}
-            isDemoPopulated={isDemoPopulated}
           />
         )}
 
         {currentScreen === 'doctor_dashboard' && (
           <DoctorDashboard
             selectedOrg={selectedOrg}
-            isDemoPopulated={isDemoPopulated}
           />
         )}
 
         {currentScreen === 'lab_tech_dashboard' && (
           <LabTechDashboard
             selectedOrg={selectedOrg}
-            isDemoPopulated={isDemoPopulated}
           />
         )}
       </div>
