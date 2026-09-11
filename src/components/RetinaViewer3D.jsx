@@ -126,53 +126,103 @@ export default function RetinaViewer3D() {
         {/* Main Glass Outer Ring */}
         <div className="relative w-full h-full rounded-full p-5 sm:p-6 bg-gradient-to-b from-slate-900/5 to-slate-900/10 backdrop-blur-sm border border-teal-500/20 shadow-2xl flex items-center justify-center overflow-hidden">
           
-          {/* Retinal Fundus Graphic Base */}
-          <div className="relative w-full h-full rounded-full bg-gradient-to-br from-teal-950 via-slate-950 to-teal-900 shadow-inner flex items-center justify-center overflow-hidden border border-teal-400/30">
+          {/* Retinal Fundus Graphic Base — orange/red fundus background */}
+          <div className="relative w-full h-full rounded-full bg-gradient-to-br from-[#3d1008] via-[#7a2010] to-[#4a1508] shadow-inner flex items-center justify-center overflow-hidden border border-orange-900/40">
             
             {/* Animated AI Scanning Grid Lines */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#0d948815_1px,transparent_1px),linear-gradient(to_bottom,#0d948815_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#c0521510_1px,transparent_1px),linear-gradient(to_bottom,#c0521510_1px,transparent_1px)] bg-[size:24px_24px]"></div>
             
-            {/* Fundus Radial Illumination */}
-            <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_35%_50%,rgba(20,184,166,0.35)_0%,rgba(15,23,42,0.85)_70%,rgba(13,148,136,0.4)_100%)]"></div>
+            {/* Fundus Radial Illumination — realistic orange-amber fundus light */}
+            <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_38%_50%,rgba(220,100,30,0.75)_0%,rgba(160,50,10,0.60)_25%,rgba(80,15,5,0.80)_60%,rgba(30,5,2,0.95)_100%)]"></div>
 
-            {/* Retinal Blood Vessel Patterns SVG */}
-            <svg className="absolute inset-0 w-full h-full opacity-70 pointer-events-none" viewBox="0 0 400 400" fill="none">
-              {/* Optic Disc Glow */}
-              <circle cx="125" cy="200" r="32" fill="url(#opticGlow)" />
-              <circle cx="125" cy="200" r="18" fill="#fef08a" fillOpacity="0.4" />
-              <circle cx="125" cy="200" r="8" fill="#ffffff" fillOpacity="0.8" />
-
-              {/* Macular Glow */}
-              <circle cx="260" cy="210" r="28" fill="url(#maculaGlow)" />
-              <circle cx="260" cy="210" r="4" fill="#38bdf8" fillOpacity="0.8" />
-
-              {/* Vascular Branches (Superior / Inferior) */}
-              <path d="M125 200 C 135 150, 160 110, 220 85 C 280 60, 330 75, 370 120" stroke="#14b8a6" strokeWidth="3.5" strokeLinecap="round" opacity="0.85"/>
-              <path d="M125 200 C 145 160, 185 130, 250 115 C 310 100, 360 130, 390 170" stroke="#06b6d4" strokeWidth="2.2" strokeLinecap="round" opacity="0.75"/>
-              <path d="M220 85 C 240 70, 270 50, 310 45" stroke="#2dd4bf" strokeWidth="1.8" strokeLinecap="round" opacity="0.6"/>
-              <path d="M125 200 C 135 250, 160 290, 220 315 C 280 340, 335 325, 375 280" stroke="#14b8a6" strokeWidth="3.5" strokeLinecap="round" opacity="0.85"/>
-              <path d="M125 200 C 145 240, 185 270, 250 285 C 310 300, 360 270, 390 230" stroke="#06b6d4" strokeWidth="2.2" strokeLinecap="round" opacity="0.75"/>
-              <path d="M220 315 C 240 330, 270 350, 310 355" stroke="#2dd4bf" strokeWidth="1.8" strokeLinecap="round" opacity="0.6"/>
-              <path d="M125 200 C 90 180, 60 170, 20 180" stroke="#0d9488" strokeWidth="2" strokeLinecap="round" opacity="0.6"/>
-              <path d="M125 200 C 90 220, 60 230, 20 220" stroke="#0d9488" strokeWidth="2" strokeLinecap="round" opacity="0.6"/>
-
-              {/* Concentric AI Target Rings */}
-              <circle cx="200" cy="200" r="140" stroke="#0d9488" strokeWidth="1" strokeDasharray="4 6" opacity="0.3"/>
-              <circle cx="200" cy="200" r="95" stroke="#14b8a6" strokeWidth="1" strokeDasharray="3 5" opacity="0.4"/>
-              <circle cx="200" cy="200" r="45" stroke="#38bdf8" strokeWidth="1" strokeDasharray="2 4" opacity="0.5"/>
-
+            {/* Realistic Retinal Fundus SVG — orange/amber/red color palette */}
+            <svg className="absolute inset-0 w-full h-full opacity-90 pointer-events-none" viewBox="0 0 400 400" fill="none">
               <defs>
+                {/* Optic disc warm glow */}
                 <radialGradient id="opticGlow" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
-                  <stop offset="0%" stopColor="#fef08a" stopOpacity="0.9" />
-                  <stop offset="60%" stopColor="#f59e0b" stopOpacity="0.4" />
-                  <stop offset="100%" stopColor="#f59e0b" stopOpacity="0" />
+                  <stop offset="0%"  stopColor="#fff8e1" stopOpacity="1"   />
+                  <stop offset="30%" stopColor="#ffcc80" stopOpacity="0.85"/>
+                  <stop offset="65%" stopColor="#f97316" stopOpacity="0.45"/>
+                  <stop offset="100%" stopColor="#7c2d12" stopOpacity="0" />
                 </radialGradient>
+
+                {/* Macula subtle dark centre */}
                 <radialGradient id="maculaGlow" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
-                  <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.7" />
-                  <stop offset="70%" stopColor="#0284c7" stopOpacity="0.2" />
-                  <stop offset="100%" stopColor="#0284c7" stopOpacity="0" />
+                  <stop offset="0%"  stopColor="#1c0700" stopOpacity="0.85"/>
+                  <stop offset="50%" stopColor="#7c2d12" stopOpacity="0.35"/>
+                  <stop offset="100%" stopColor="#c2410c" stopOpacity="0" />
+                </radialGradient>
+
+                {/* Subtle cotton-wool / lesion patches */}
+                <radialGradient id="lesion1" cx="0.5" cy="0.5" r="0.5">
+                  <stop offset="0%"  stopColor="#fde68a" stopOpacity="0.35"/>
+                  <stop offset="100%" stopColor="#f97316" stopOpacity="0" />
+                </radialGradient>
+                <radialGradient id="lesion2" cx="0.5" cy="0.5" r="0.5">
+                  <stop offset="0%"  stopColor="#fef3c7" stopOpacity="0.28"/>
+                  <stop offset="100%" stopColor="#c2410c" stopOpacity="0" />
+                </radialGradient>
+
+                {/* Choroidal texture overlay */}
+                <radialGradient id="choroid" cx="0.5" cy="0.5" r="0.5">
+                  <stop offset="0%"  stopColor="#dc6820" stopOpacity="0.55"/>
+                  <stop offset="55%" stopColor="#9a3412" stopOpacity="0.30"/>
+                  <stop offset="100%" stopColor="#3d0f04" stopOpacity="0"  />
                 </radialGradient>
               </defs>
+
+              {/* Choroidal / retinal background warmth */}
+              <circle cx="200" cy="200" r="200" fill="url(#choroid)" />
+
+              {/* Optic disc — bright warm area, left-centre */}
+              <circle cx="135" cy="200" r="36" fill="url(#opticGlow)" />
+              <circle cx="135" cy="200" r="20" fill="#fff8e1" fillOpacity="0.55" />
+              <circle cx="135" cy="200" r="9"  fill="#fffde7" fillOpacity="0.90" />
+
+              {/* Macula — slightly darker oval, right-centre */}
+              <ellipse cx="255" cy="205" rx="30" ry="26" fill="url(#maculaGlow)" />
+              {/* Foveal reflex — tiny bright centre spot */}
+              <circle cx="255" cy="205" r="3.5" fill="#fff8e1" fillOpacity="0.55" />
+
+              {/* ── Arterial / venous vascular tree ── */}
+              {/* Main superior arcade — darker red arteries */}
+              <path d="M135 200 C 148 162, 172 128, 228 98 C 278 72, 335 80, 375 115"
+                    stroke="#b91c1c" strokeWidth="4" strokeLinecap="round" opacity="0.90"/>
+              {/* Superior arcade branch */}
+              <path d="M135 200 C 152 168, 192 138, 248 122 C 305 108, 358 132, 390 168"
+                    stroke="#dc2626" strokeWidth="2.4" strokeLinecap="round" opacity="0.75"/>
+              {/* Fine superior branch */}
+              <path d="M228 98 C 248 82, 278 62, 318 55"
+                    stroke="#ef4444" strokeWidth="1.8" strokeLinecap="round" opacity="0.60"/>
+              <path d="M248 122 C 270 105, 305 90, 340 88"
+                    stroke="#f87171" strokeWidth="1.4" strokeLinecap="round" opacity="0.50"/>
+
+              {/* Main inferior arcade */}
+              <path d="M135 200 C 148 238, 172 272, 228 302 C 278 328, 335 320, 375 285"
+                    stroke="#b91c1c" strokeWidth="4" strokeLinecap="round" opacity="0.90"/>
+              {/* Inferior arcade branch */}
+              <path d="M135 200 C 152 232, 192 262, 248 278 C 305 292, 358 268, 390 232"
+                    stroke="#dc2626" strokeWidth="2.4" strokeLinecap="round" opacity="0.75"/>
+              {/* Fine inferior branch */}
+              <path d="M228 302 C 248 318, 278 338, 318 345"
+                    stroke="#ef4444" strokeWidth="1.8" strokeLinecap="round" opacity="0.60"/>
+
+              {/* Nasal vessels toward left edge */}
+              <path d="M135 200 C 100 185, 68 178, 22 188"
+                    stroke="#991b1b" strokeWidth="2.2" strokeLinecap="round" opacity="0.65"/>
+              <path d="M135 200 C 100 215, 68 222, 22 212"
+                    stroke="#991b1b" strokeWidth="2.2" strokeLinecap="round" opacity="0.65"/>
+
+              {/* Smaller capillary-level branches near macula */}
+              <path d="M220 165 C 238 152, 255 148, 268 155"
+                    stroke="#f87171" strokeWidth="1.2" strokeLinecap="round" opacity="0.45"/>
+              <path d="M220 240 C 238 252, 255 258, 268 252"
+                    stroke="#f87171" strokeWidth="1.2" strokeLinecap="round" opacity="0.45"/>
+
+              {/* Subtle cotton-wool / hard exudate patches */}
+              <circle cx="300" cy="145" r="18" fill="url(#lesion1)" />
+              <circle cx="180" cy="260" r="14" fill="url(#lesion2)" />
+              <circle cx="320" cy="260" r="12" fill="url(#lesion1)" />
             </svg>
 
             {/* AI Laser Scan Vertical Bar Animation */}
